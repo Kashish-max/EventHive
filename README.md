@@ -9,24 +9,24 @@ A Platform that enables hosting of various hackthons.
  - Python3 installed (https://www.python.org/downloads/)
  - Setup Environment variables
    - ## Frontend
-      - ```bash
+      ```bash
          NEXT_PUBLIC_BACKEND_URL=<your_backend_server_url>
       ```
-      - For local environment use:
+      For local environment use:
       ```bash
          NEXT_PUBLIC_BACKEND_URL=http://localhost:3000
       ```
    - ## Backend
-      - ```bash
-         POSTGRES_URL=''
-         PGNAME=''
-         PGUSER=''
-         POSTGRES_PASSWORD=''
-         PGHOST=''
-         PGPORT=''
-         CLOUDINARY_CLOUD_NAME=''
-         CLOUDINARY_API_KEY=''
-         CLOUDINARY_API_SECRET=''      
+      ```bash
+         POSTGRES_URL=
+         PGNAME=
+         PGUSER=
+         POSTGRES_PASSWORD=
+         PGHOST=
+         PGPORT=
+         CLOUDINARY_CLOUD_NAME=
+         CLOUDINARY_API_KEY=
+         CLOUDINARY_API_SECRET=
       ```
    - For backend production, you can create account on Railway for postgres server and 
    on Cloudinary for django media storage and modify the .env variables.
