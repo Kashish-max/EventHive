@@ -127,7 +127,7 @@ export default function HostHackathon({authData}) {
 
     const Body = () => {
         return (
-            <div className="bg-white px-2 sm:px-6 lg:px-20 pt-6 pb-16 space-y-4">
+            <div className="bg-white px-4 sm:px-2 sm:px-6 lg:px-20 pt-6 pb-16 space-y-4">
                 <form className="font-[ProductSans]" onSubmit={handleSubmit}>
                     <div className="space-y-6 border-t border-gray-900/10 py-8">
                         <div className="border-b border-gray-900/10 pb-12">

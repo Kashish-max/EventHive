@@ -63,7 +63,7 @@ export default function MyRegistrations() {
                 <Loading /> 
                 : 
                 <div className="p-8 flex w-full justify-center items-center">
-                    You need to be logged in to host a hackathon.
+                    You need to be logged in to view this page.
                 </div>        
             )
         )

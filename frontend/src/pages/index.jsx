@@ -60,43 +60,45 @@ export default function Home() {
 
   return (
       <Layout>
-        { user &&
-          <BaseSpeedDial logout={handleLogout} />
-        }
-        <Modal authData={{authState, user}} />
-        <div className="max-w-3xl flex flex-col items-center space-y-8">
-          <h1 className="text-lg sm:text-2xl text-black text-center">Explore opportunities from across the globe to learn, showcase skills, gain CV points, & get hired by your dream company.</h1>
-          <div className="flex space-x-2">
-            {user ?
-              <>
-                <button 
-                  onClick={() => {
-                    dispatch(setDefaultTab('hackathons'))
-                    dispatch(setOpen(true))
-                  }} 
-                  className="flex items-center rounded-md text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium text-sm px-5 py-2.5 mr-2 mb-2"
-                >
-                  <BookmarkIcon className="h-4 w-4 mr-2" />
-                  <span>Explore Hackathons</span>
-                </button>
-                <button 
-                  className="flex items-center rounded-md text-white bg-black hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2 mb-2"
-                  onClick={handleLogout}
-                >
-                  <span>Logout</span>
-                </button> 
-              </>
-              :
-              <>
-                <Link href="/login" className="flex items-center rounded-md text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium text-sm px-5 py-2.5 mr-2 mb-2">
-                  <ArrowRightOnRectangleIcon className="h-4 w-4 mr-2" />
-                  <span>Login</span>
-                </Link>
-                <Link href="/signup" className="flex items-center rounded-md text-white bg-black hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2 mb-2">
-                  <span>Signup</span>
-                </Link>              
-              </>             
-            }
+        <div className="flex flex-col grow justify-center items-center pb-12 sm:py-0 sm:min-h-[32rem] lg:min-h-0">
+          { user &&
+            <BaseSpeedDial logout={handleLogout} />
+          }
+          <Modal authData={{authState, user}} />
+          <div className="max-w-3xl flex flex-col items-center space-y-8">
+            <h1 className="text-lg sm:text-2xl text-black text-center">Explore opportunities from across the globe to learn, showcase skills, gain CV points, & get hired by your dream company.</h1>
+            <div className="flex space-x-2">
+              {user ?
+                <>
+                  <button 
+                    onClick={() => {
+                      dispatch(setDefaultTab('hackathons'))
+                      dispatch(setOpen(true))
+                    }} 
+                    className="flex items-center rounded-md text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium text-sm px-5 py-2.5 mr-2 mb-2"
+                  >
+                    <BookmarkIcon className="h-4 w-4 mr-2" />
+                    <span>Explore Hackathons</span>
+                  </button>
+                  <button 
+                    className="flex items-center rounded-md text-white bg-black hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2 mb-2"
+                    onClick={handleLogout}
+                  >
+                    <span>Logout</span>
+                  </button> 
+                </>
+                :
+                <>
+                  <Link href="/login" className="flex items-center rounded-md text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium text-sm px-5 py-2.5 mr-2 mb-2">
+                    <ArrowRightOnRectangleIcon className="h-4 w-4 mr-2" />
+                    <span>Login</span>
+                  </Link>
+                  <Link href="/signup" className="flex items-center rounded-md text-white bg-black hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2 mb-2">
+                    <span>Signup</span>
+                  </Link>              
+                </>             
+              }
+            </div>
           </div>
         </div>
       </Layout>

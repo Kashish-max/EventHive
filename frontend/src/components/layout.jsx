@@ -12,7 +12,7 @@ export default function Home({children}) {
     >
       <Header />
       <div className="grow flex flex-col">
-        <div className="flex flex-col grow items-center justify-center min-h-[32rem] lg:min-h-0">
+        <div className="flex flex-col grow">
             {children}
         </div>
         <Footer/>

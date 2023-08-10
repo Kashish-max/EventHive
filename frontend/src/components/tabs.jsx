@@ -15,10 +15,10 @@ import {
 } from "@heroicons/react/24/solid";
 
 import { selectDefaultTab } from "../store/authSlice";
-import AllHackathons from "./features/all-hacks"; 
-import HostHackathon from "./features/host-hack";
-import MyRegistrations from "./features/my-registrations";
-import MyListings from "./features/my-listings";
+import AllHackathons from "./modal-pages/all-hacks"; 
+import HostHackathon from "./modal-pages/host-hack";
+import MyRegistrations from "./modal-pages/my-registrations";
+import MyListings from "./modal-pages/my-listings";
 
 
 export default function TabsWithIcon({authData}) {
@@ -67,7 +67,7 @@ export default function TabsWithIcon({authData}) {
       </TabsHeader>
       <TabsBody>
         {data.map(({ value, component }) => (
-          <TabPanel key={value} value={value}>
+          <TabPanel key={value} value={value} className="px-0 py-2 sm:p-4">
             {component}
           </TabPanel>
         ))}
