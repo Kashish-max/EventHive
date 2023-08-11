@@ -228,13 +228,12 @@ export default function HackCard({authData, hackathon}) {
                         }                    
                     </div>
                     <div>
-                        {
-                            !authData?.user ?
-                                (isHackathonOpen(hackathon.start_on) ?
-                                    <Button className="bg-blue-500 hover:bg-blue-600 focus:ring-blue-300 px-6 py-2" text="Apply" onClick={handleApply} />
-                                    :
-                                    <Button className="bg-gray-500 ps-3 pr-4 py-2" text="Closed" icon={<NoSymbolIcon className="h-5 w-5 mr-1" />} disabled={true} />
-                                )
+                        {!authData?.user ?
+                            (isHackathonOpen(hackathon.start_on) ?
+                                <Button className="bg-blue-500 hover:bg-blue-600 focus:ring-blue-300 px-6 py-2" text="Apply" onClick={handleApply} />
+                                :
+                                <Button className="bg-gray-500 ps-3 pr-4 py-2" text="Closed" icon={<NoSymbolIcon className="h-5 w-5 mr-1" />} disabled={true} />
+                            )
                             :
                             <div className="space-x-3 flex">
                                 { hackathon.host === authData?.user?.id && 

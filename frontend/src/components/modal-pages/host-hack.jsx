@@ -196,7 +196,7 @@ export default function HostHackathon({authData}) {
                             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-6">
                                 <div className="sm:col-span-3">
                                     <label htmlFor="start_on" className="block text-sm font-medium leading-6 text-gray-900">
-                                        Start Date{' '}<span className="text-red-700">*</span>
+                                        Registration Start Date & Time{' '}<span className="text-red-700">*</span>
                                     </label>
                                     <div className="mt-2">
                                         <input
@@ -211,7 +211,7 @@ export default function HostHackathon({authData}) {
 
                                 <div className="sm:col-span-3">
                                     <label htmlFor="end_on" className="block text-sm font-medium leading-6 text-gray-900">
-                                        End Date{' '}<span className="text-red-700">*</span>
+                                        Registration End Date & Time{' '}<span className="text-red-700">*</span>
                                     </label>
                                     <div className="mt-2">
                                         <input
