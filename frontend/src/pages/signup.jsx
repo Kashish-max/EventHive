@@ -53,11 +53,11 @@ export default function Signup() {
     }
 
     return (
-        <form className="bg-white py-12 px-4 sm:px-12 sm:py-24 lg:px-24 min-h-screen" onSubmit={handleSubmit}>
+        <form className="bg-white py-12 px-4 sm:px-12 sm:py-24 lg:px-24 min-h-screen flex justify-center items-center font-[ProductSans]" onSubmit={handleSubmit}>
             <div className="max-w-xl m-auto border border-gray-300 p-8 shadow-lg rounded-lg">
                 <div className="space-y-2">
                     <div className="border-b border-gray-900/10 pb-6">
-                        <h2 className="text-2xl font-bold leading-7 text-gray-900">Register</h2>
+                        <h2 className="text-3xl font-bold leading-7 text-gray-900">Register</h2>
                         <p className="text-red-600 text-sm mt-2">{error && error}</p>
                         <div className="mt-4 grid grid-cols-1 sm:grid-cols-6">
                             <div className="sm:col-span-4">
@@ -65,13 +65,13 @@ export default function Signup() {
                                     Username
                                 </label>
                                 <div className="mt-1">
-                                    <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-600 sm:max-w-md">
+                                    <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-400 focus-within:outline-none sm:max-w-md">
                                         <input
                                             required
                                             type="text"
                                             name="username"
                                             id="username"
-                                            className="block flex-1 border-0 bg-transparent py-1 sm:py-1.5 px-2 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                                            className="block flex-1 border-0 bg-transparent py-1 sm:py-1.5 px-2 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 outline-none"
                                             placeholder="janesmith"
                                         />
                                     </div>
@@ -97,7 +97,7 @@ export default function Signup() {
                                     type="text"
                                     name="first_name"
                                     id="first_name"
-                                    className="block w-full rounded-md border-0 py-1 sm:py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                                    className="block w-full rounded-md border-0 py-1 sm:py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 focus-within:outline-none sm:text-sm sm:leading-6"
                                     />
                                 </div>
                             </div>
@@ -111,7 +111,7 @@ export default function Signup() {
                                     type="text"
                                     name="last_name"
                                     id="last_name"
-                                    className="block w-full rounded-md border-0 py-1 sm:py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                                    className="block w-full rounded-md border-0 py-1 sm:py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 focus-within:outline-none sm:text-sm sm:leading-6"
                                     />
                                 </div>
                             </div>
@@ -127,7 +127,7 @@ export default function Signup() {
                                     name="email"
                                     type="email"
                                     autoComplete="email"
-                                    className="block w-full rounded-md border-0 py-1 sm:py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                                    className="block w-full rounded-md border-0 py-1 sm:py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 focus-within:outline-none sm:text-sm sm:leading-6"
                                     />
                                 </div>
                             </div>
@@ -140,7 +140,7 @@ export default function Signup() {
                                     <select
                                     id="gender"
                                     name="gender"
-                                    className="block w-full rounded-md border-0 py-1 sm:py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                                    className="block w-full rounded-md border-0 py-1 sm:py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-400 focus-within:outline-none sm:max-w-xs sm:text-sm sm:leading-6"
                                     >
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
@@ -155,13 +155,13 @@ export default function Signup() {
                                     Phone
                                 </label>
                                 <div className="mt-1">
-                                    <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                                    <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-400 sm:max-w-md">
                                         <span className="flex select-none items-center ps-3 pe-1 text-gray-500 sm:text-sm">+91</span>
                                         <input
                                             type="tel"
                                             name="phone"
                                             id="phone"
-                                            className="block flex-1 border-0 bg-transparent py-1 sm:py-1.5 ps-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 focus:outline-none sm:text-sm sm:leading-6"
+                                            className="block flex-1 border-0 bg-transparent py-1 sm:py-1.5 ps-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 outline-none sm:text-sm sm:leading-6"
                                             placeholder="8273927425"
                                             required
                                         />
@@ -178,7 +178,7 @@ export default function Signup() {
                                         type="date"
                                         name="date_of_birth"
                                         id="date_of_birth"
-                                        className="block w-full rounded-md border-0 py-1 sm:py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                                        className="block w-full rounded-md border-0 py-1 sm:py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 focus-within:outline-none sm:text-sm sm:leading-6"
                                         required
                                     />
                                 </div>
@@ -193,7 +193,7 @@ export default function Signup() {
                                         type="password"
                                         name="password"
                                         id="password"
-                                        className="block w-full rounded-md border-0 py-1 sm:py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                                        className="block w-full rounded-md border-0 py-1 sm:py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 focus-within:outline-none sm:text-sm sm:leading-6"
                                         required
                                     />
                                 </div>
@@ -210,7 +210,7 @@ export default function Signup() {
                                 id="agreement"
                                 name="agreement"
                                 type="checkbox"
-                                className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-600"
+                                className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-400 focus-within:outline-none"
                                 />
                             </div>
                             <div className="text-sm leading-6">

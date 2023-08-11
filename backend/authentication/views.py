@@ -11,14 +11,6 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 
-class HomeView(APIView):
-    permission_classes = (IsAuthenticated, )
-    
-    def get(self, request):
-        content = {"message": "Welcome to the JWT Authentication page using React Js and Django!"}
-        return Response(content)
-    
-
 class SignupView(APIView):
     def post(self, request):
         serializer = SignupSerializer(data=request.data)

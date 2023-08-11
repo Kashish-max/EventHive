@@ -48,10 +48,10 @@ export default function Login() {
     }
 
     return (
-        <form className="bg-white py-12 px-4 sm:px-12 sm:py-24 lg:px-24 min-h-screen" onSubmit={handleSubmit}>
-            <div className="max-w-xl m-auto border border-gray-300 p-8 shadow-lg rounded-lg">
-                <div className="space-y-2 pb-4">
-                    <h2 className="text-2xl font-bold leading-7 text-gray-900">Login</h2>
+        <form className="py-12 px-4 sm:px-12 sm:py-24 lg:px-24 min-h-screen flex justify-center items-center font-[ProductSans]" onSubmit={handleSubmit}>
+            <div className="bg-white w-full max-w-xl border border-gray-300 p-8 shadow-lg rounded-lg">
+                <div className="pb-4">
+                    <h2 className="text-3xl font-bold leading-7 text-gray-900">Login</h2>
                     <p className="text-red-600 text-sm mt-2">{error && error}</p>
                     <div className="mt-4 grid gap-x-6 gap-y-4 sm:grid-cols-6">
 
@@ -59,14 +59,14 @@ export default function Login() {
                             <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                                 Email address
                             </label>
-                            <div className="mt-2">
+                            <div className="mt-1">
                                 <input
                                 required
                                 id="email"
                                 name="email"
                                 type="email"
                                 autoComplete="email"
-                                className="block w-full rounded-md border-0 py-1 sm:py-2 ps-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                                className="block w-full rounded-md border-0 py-1 sm:py-2 ps-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-400 outline-none sm:text-sm sm:leading-6"
                                 />
                             </div>
                         </div>
@@ -75,13 +75,13 @@ export default function Login() {
                             <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
                                 Password
                             </label>
-                            <div className="mt-2">
+                            <div className="mt-1">
                                 <input
                                     type="password"
                                     name="password"
                                     id="password"
                                     autoComplete="password"
-                                    className="block w-full rounded-md border-0 py-1 sm:py-2 ps-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                                    className="block w-full rounded-md border-0 py-1 sm:py-2 ps-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-400 outline-none sm:text-sm sm:leading-6"
                                     required
                                 />
                             </div>
