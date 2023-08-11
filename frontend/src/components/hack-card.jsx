@@ -177,9 +177,9 @@ export default function HackCard({authData, hackathon}) {
                         <Typography color="blue-gray" className="font-[ProductSans] tracking-wide text-sm capitalize">{hackathon?.host_display_name}</Typography>
                     </div>
                 </div>
-                <div className="sm:flex items-start space-y-2 sm:space-y-0 sm:space-x-2 mt-4 lg:mt-0">
+                <div className="sm:flex items-start space-y-2 sm:space-y-0 sm:space-x-2 mt-4 lg:mt-0 font-[ProductSans] ">
                     { hackathon.reward &&
-                        <div className="flex items-center sm:border-r border-gray-400 sm:pe-3">
+                        <div className="hidden xl:flex items-center sm:border-r border-gray-400 sm:pe-3">
                             <StarIcon className="w-5 h-5 text-gray-600" />
                             <span className="text-sm text-gray-800 ms-1.5 flex items-center">
                                 <span className="font-semibold text-gray-600 text-lg mr-0.5 leading-none">&#x20B9;</span>
@@ -215,42 +215,55 @@ export default function HackCard({authData, hackathon}) {
                 <Typography className="font-[ProductSans] font-normal text-gray-900 description">
                     <div dangerouslySetInnerHTML={{ __html: (hackathon.description) }}></div>
                 </Typography>
-                <div className="w-full flex justify-end">
-                    {
-                        !authData?.user ?
-                            (isHackathonOpen(hackathon.start_on) ?
-                                <Button className="bg-blue-500 hover:bg-blue-600 focus:ring-blue-300 px-6 py-2" text="Apply" onClick={handleApply} />
-                                :
-                                <Button className="bg-gray-500 ps-3 pr-4 py-2" text="Closed" icon={<NoSymbolIcon className="h-5 w-5 mr-1" />} disabled={true} />
-                            )
-                        :
-                        <div className="space-x-3 flex">
-                            { hackathon.host === authData?.user?.id && 
-                                <Button className="bg-red-800 hover:bg-red-700 ps-3 pr-4 py-2" text="Delete" icon={<TrashIcon className="h-5 w-5 mr-1" />} onClick={handleDelete} />
-                            }
-                            { userEnrollment ?
-                                ( isHackathonOpen(hackathon.start_on) ?
-                                    <Button className="bg-blue-800 ps-3 pr-4 py-2" text="Applied" icon={<CheckBadgeIcon className="h-5 w-5 mr-1" />} disabled={true} />
-                                    :
-                                    ( madeSubmission() ?
-                                        <Button className="bg-green-700 ps-3 pr-4 py-2" text="Submitted" icon={<CheckBadgeIcon className="h-5 w-5 mr-1" />} disabled={true} />
-                                        :
-                                        ( isHackathonOpen(hackathon.end_on) ?
-                                            <Button className="bg-gray-900 hover:bg-gray-800 focus:ring-black px-6 py-2" text="Make Submission" onClick={handleSubmission} />
-                                            :
-                                            <Button className="bg-gray-500 ps-3 pr-4 py-2" text="Closed" icon={<NoSymbolIcon className="h-5 w-5 mr-1" />} disabled={true} />
-                                        )
-                                    )
-                                )
-                                :
+                <div className="flex justify-between items-end font-[ProductSans]">
+                    <div>
+                        { hackathon.reward &&
+                            <div className="flex xl:hidden items-center sm:pe-3">
+                                Win upto 
+                                <span className="text-sm text-gray-800 ms-1.5 flex items-center font-semibold">
+                                    <span className="text-gray-900 text-lg mr-0.5 leading-none">&#x20B9;</span>
+                                    {hackathon.reward.toLocaleString('en-US', {maximumFractionDigits:2})}
+                                </span>
+                            </div>
+                        }                    
+                    </div>
+                    <div>
+                        {
+                            !authData?.user ?
                                 (isHackathonOpen(hackathon.start_on) ?
                                     <Button className="bg-blue-500 hover:bg-blue-600 focus:ring-blue-300 px-6 py-2" text="Apply" onClick={handleApply} />
                                     :
                                     <Button className="bg-gray-500 ps-3 pr-4 py-2" text="Closed" icon={<NoSymbolIcon className="h-5 w-5 mr-1" />} disabled={true} />
                                 )
-                            }
-                        </div>
-                    }
+                            :
+                            <div className="space-x-3 flex">
+                                { hackathon.host === authData?.user?.id && 
+                                    <Button className="bg-red-800 hover:bg-red-700 ps-3 pr-4 py-2" text="Delete" icon={<TrashIcon className="h-5 w-5 mr-1" />} onClick={handleDelete} />
+                                }
+                                { userEnrollment ?
+                                    ( isHackathonOpen(hackathon.start_on) ?
+                                        <Button className="bg-blue-800 ps-3 pr-4 py-2" text="Applied" icon={<CheckBadgeIcon className="h-5 w-5 mr-1" />} disabled={true} />
+                                        :
+                                        ( madeSubmission() ?
+                                            <Button className="bg-green-700 ps-3 pr-4 py-2" text="Submitted" icon={<CheckBadgeIcon className="h-5 w-5 mr-1" />} disabled={true} />
+                                            :
+                                            ( isHackathonOpen(hackathon.end_on) ?
+                                                <Button className="bg-gray-900 hover:bg-gray-800 focus:ring-black px-6 py-2" text="Make Submission" onClick={handleSubmission} />
+                                                :
+                                                <Button className="bg-gray-500 ps-3 pr-4 py-2" text="Closed" icon={<NoSymbolIcon className="h-5 w-5 mr-1" />} disabled={true} />
+                                            )
+                                        )
+                                    )
+                                    :
+                                    (isHackathonOpen(hackathon.start_on) ?
+                                        <Button className="bg-blue-500 hover:bg-blue-600 focus:ring-blue-300 px-6 py-2" text="Apply" onClick={handleApply} />
+                                        :
+                                        <Button className="bg-gray-500 ps-3 pr-4 py-2" text="Closed" icon={<NoSymbolIcon className="h-5 w-5 mr-1" />} disabled={true} />
+                                    )
+                                }
+                            </div>
+                        }
+                    </div>
                 </div>
             </CardBody>
         </Card>
