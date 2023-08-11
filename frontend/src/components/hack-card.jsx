@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
     Card,
     CardHeader,
@@ -19,7 +19,7 @@ import {
 } from "@heroicons/react/24/solid";
 import Cookies from "js-cookie";
 
-import { setOpen } from '@/store/authSlice'
+import { selectUpdate, setOpen, setUpdate } from '@/store/authSlice'
 import { makeRequest, getDaysBetweenDates } from "./helpers";
 import SubModal from "./sub-modal";
 import Loading from "./loading";
@@ -28,6 +28,8 @@ import Loading from "./loading";
 export default function HackCard({authData, hackathon}) {
     const router = useRouter();
     const dispatch = useDispatch();
+    const update = useSelector(selectUpdate);
+
     const [loading, setLoading] = useState(true);
     const [enrollments, setEnrollments] = useState(null);
     const [userEnrollment, setUserEnrollment] = useState(null);
@@ -73,6 +75,7 @@ export default function HackCard({authData, hackathon}) {
             if (response.status === 201) {
                 fetchHackathonEnrollments();
                 setTimeout(() => {
+                    dispatch(setUpdate(!update));
                     setLoading(false);
                 }, 1000);
             } else { 
@@ -101,7 +104,8 @@ export default function HackCard({authData, hackathon}) {
             setLoading(true);
             const response = await makeRequest(`${process.env.NEXT_PUBLIC_BACKEND_URL}/hackathons/list/${hackathon.id}/`, 'DELETE', null, config);
             setTimeout(() => {
-                dispatch(setOpen(false));                    
+                // dispatch(setOpen(false));                    
+                dispatch(setUpdate(!update));
             }, 1000);
         } catch (error) {
             console.error(`An error occurred while deleting enrollment for hackathon - ${hackathon.title}:`, error);

@@ -8,17 +8,18 @@ import useAuthentication from '../hooks/useAuthentication'
 import ModalLayout from './tab-body-layout'
 import HackCard from '../hack-card'
 import Loading from '../loading'
-import { selectSearch } from '../../store/authSlice'
+import { selectSearch, selectUpdate } from '../../store/authSlice'
 
 export default function MyRegistrations() {
     const { authState, user } = useAuthentication();    
 
     const [myEnrollments, setEnrollments] = useState();
     const search = useSelector(selectSearch);
+    const update = useSelector(selectUpdate);
 
     useEffect(() => {
         fetchMyRegistrations();
-    }, [])
+    }, [update])
 
     const fetchMyRegistrations = async() => {
         const accessToken = Cookies.get('access_token');

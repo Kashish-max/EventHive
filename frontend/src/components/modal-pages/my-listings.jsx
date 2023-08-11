@@ -8,17 +8,18 @@ import useAuthentication from '../hooks/useAuthentication'
 import ModalLayout from './tab-body-layout'
 import HackCard from '../hack-card'
 import Loading from '../loading'
-import { selectSearch } from '../../store/authSlice'
+import { selectSearch, selectUpdate } from '../../store/authSlice'
 
 export default function MyListings() {
     const { authState, user } = useAuthentication();    
 
     const [myListings, setMyListings] = useState();
     const search = useSelector(selectSearch);
+    const update = useSelector(selectUpdate);
 
     useEffect(() => {
         fetchMyListings();
-    }, [])
+    }, [update])
 
     const fetchMyListings = async() => {
         const accessToken = Cookies.get('access_token');

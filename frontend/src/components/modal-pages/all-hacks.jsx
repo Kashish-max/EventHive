@@ -6,15 +6,16 @@ import { makeRequest } from '../helpers'
 import ModalLayout from './tab-body-layout'
 import HackCard from '../hack-card'
 import Loading from '../loading'
-import { selectSearch } from '../../store/authSlice'
+import { selectSearch, selectUpdate } from '../../store/authSlice'
 
 export default function AllHackathons({authData}) { 
     const [allHackathons, setAllHackathons] = useState();
     const search = useSelector(selectSearch);
+    const update = useSelector(selectUpdate);
 
     useEffect(() => {
         fetchAllHackathons();
-    }, [])
+    }, [update])
 
     const fetchAllHackathons = async() => {
         try {

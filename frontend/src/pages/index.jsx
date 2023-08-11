@@ -43,11 +43,11 @@ export default function Home() {
         Cookies.remove('refresh_token');
         window.location.reload()
       } else {
-        // Cookies.remove('access_token');
-        // Cookies.remove('refresh_token');    
+        Cookies.remove('access_token');
+        Cookies.remove('refresh_token');    
         console.log('Logout request failed from server.');
         console.log(response);
-        setLoading(false);
+        window.location.reload()
       }
     } catch (error) {
       console.error('An error occurred during logout:', error);

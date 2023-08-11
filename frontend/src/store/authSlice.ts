@@ -9,6 +9,7 @@ export interface AuthState {
   open: boolean;
   search: string;
   defaultTab: string;
+  update: boolean;
 }
 
 // Initial state
@@ -18,6 +19,7 @@ const initialState: AuthState = {
   open: false,
   search: "",
   defaultTab: "hackathons",
+  update: false, 
 };
 
 // Actual Slice
@@ -41,6 +43,9 @@ export const authSlice = createSlice({
     setDefaultTab(state, action) {
       state.defaultTab = action.payload;
     },
+    setUpdate(state, action) {
+      state.update = action.payload;
+    }
   },
 
   // Special reducer for hydrating the state. Special case for next-redux-wrapper
@@ -54,10 +59,11 @@ export const authSlice = createSlice({
   },
 });
 
-export const { setAuthState, setUser, setOpen, setSearch, setDefaultTab } = authSlice.actions;
+export const { setAuthState, setUser, setOpen, setSearch, setDefaultTab, setUpdate } = authSlice.actions;
 export const selectAuthState = (state: AppState) => state.auth.authState;
 export const selectUser = (state: AppState) => state.auth.user;
 export const selectOpen = (state: AppState) => state.auth.open;
 export const selectSearch = (state: AppState) => state.auth.search;
 export const selectDefaultTab = (state: AppState) => state.auth.defaultTab;
+export const selectUpdate = (state: AppState) => state.auth.update;
 export default authSlice.reducer;
