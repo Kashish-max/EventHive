@@ -33,7 +33,7 @@ export default function Login() {
                 if (verificationResponse.status === 200) {
                     console.log('Verification link sent successfully.');
                     setLoading(false);
-                    router.push('/auth/verify-email/sucess');
+                    router.push('/auth/verify-email/success');
                 }
             } else {
                 console.log('Login failed.');

@@ -25,15 +25,10 @@ export default function Signup() {
             setLoading(true);
             try {
                 const response = await makeRequest(`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/signup/`, 'POST', data);
-              if (response.status === 200) {
+              if (response.status === 201) {
                 console.log('User registered successfully.');
-                if(response.data.access &&  response.data.refresh) {
-                    Cookies.set('access_token', response.data.access, { expires: 1 });
-                    Cookies.set('refresh_token', response.data.refresh, { expires: 7, httpOnly: true });
-                    setLoading(false);
-                    router.push('/')
-                }
-              } else {
+                router.push('/auth/verify-email/success');
+            } else {
                 console.log('User registeration failed.');
                 console.log(response);
                 setLoading(false);
