@@ -11,6 +11,7 @@ class CustomOutstandingTokenAdmin(OutstandingTokenAdmin):
 
 class UserAdmin(admin.ModelAdmin):
     exclude = ('password',)
+    readonly_fields = ('verification_token', 'token_created_at')
 
 admin.site.register(User, UserAdmin)
 

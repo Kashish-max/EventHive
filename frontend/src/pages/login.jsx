@@ -26,8 +26,14 @@ export default function Login() {
                 if(response.data.access &&  response.data.refresh) {
                     Cookies.set('access_token', response.data.access, { expires: 1 });
                     Cookies.set('refresh_token', response.data.refresh, { expires: 7 });
-                    setLoading(false);
                     router.push('/')
+                }
+            } else if(response.status === 202){
+                const verificationResponse = await makeRequest(`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/resend-verification/`, 'POST', data);
+                if (verificationResponse.status === 200) {
+                    console.log('Verification link sent successfully.');
+                    setLoading(false);
+                    router.push('/auth/verify-email/sucess');
                 }
             } else {
                 console.log('Login failed.');

@@ -1,3 +1,5 @@
+import uuid
+from django.utils import timezone
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
@@ -22,7 +24,11 @@ class User(AbstractUser):
     )
     phone = PhoneNumberField(null=False, blank=False, unique=True)
     date_of_birth = models.DateField(null=True, blank=True)
-        
+
+    email_verified = models.BooleanField(default=False)
+    verification_token = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    token_created_at = models.DateTimeField(auto_now=True)
+
     @property
     def friendly_name(self):
         if self.first_name:

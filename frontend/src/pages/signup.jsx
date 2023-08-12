@@ -53,8 +53,8 @@ export default function Signup() {
     }
 
     return (
-        <form className="bg-white py-12 px-4 sm:px-12 sm:py-24 lg:px-24 min-h-screen flex justify-center items-center font-[ProductSans]" onSubmit={handleSubmit}>
-            <div className="max-w-xl m-auto border border-gray-300 p-8 shadow-lg rounded-lg">
+        <form className="py-12 px-4 sm:px-12 sm:py-24 lg:px-24 min-h-screen flex justify-center items-center font-[ProductSans]" onSubmit={handleSubmit}>
+            <div className="bg-white max-w-xl m-auto border border-gray-300 p-8 shadow-lg rounded-lg">
                 <div className="space-y-2">
                     <div className="border-b border-gray-900/10 pb-6">
                         <h2 className="text-3xl font-bold leading-7 text-gray-900">Register</h2>
